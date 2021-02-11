@@ -1,38 +1,27 @@
 import Route from '@ember/routing/route';
 import { datas } from '../data/datas';
-import Services from '../classes/services';
+import MesServices from '../classes/services';
 import { action, set } from '@ember/object';
 
 export default class Ex2Route extends Route {
   promo = false;
+
   model() {
-    return new Services(datas);
+    return new MesServices(datas);
   }
 
-  @action toggleActive(s) {
-    set(s, 'active', !s.active);
+  @action
+  toggleActive(service) {
+    set(service, 'active', !service.active);
   }
 
-  @action togglePromo() {
+  @action
+  togglePromo(){
     this.promo = !this.promo;
-    if (!this.promo) {
-      this.transitionTo('ex2');
-    } else {
+    if (this.promo) {
       this.transitionTo('ex2.promo');
-    }
-  }
-
-  @action toggleTotalVisible(checkboxElem) {
-    var total = document.getElementById('totalAvecRemise');
-    if (checkboxElem.checked) {
-      total.style.visibility = 'hidden';
     } else {
-      total.style.visibility = 'visible';
-    }
-  }
-  @action toggleRemise() {
-    if (promos.name == 'B22') {
-      return promos.price;
+      this.transitionTo('ex2');
     }
   }
 }

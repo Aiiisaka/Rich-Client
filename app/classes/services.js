@@ -1,7 +1,12 @@
+import { promos } from "../data/datas";
+
 export default class Services {
   services = [];
+  promos = {};
+
   constructor(services) {
     this.services = services;
+    this.promos = promos;
   }
 
   get countActive() {

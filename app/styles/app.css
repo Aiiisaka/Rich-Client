@@ -37,7 +37,7 @@
   background-color: #8ec16d;
 }
 
-#total {
+#total, #totalAvecRemise {
   border-top: 1px solid rgba(255,255,255,0.5);
   padding: 15px 30px;
   font-size: 20px;
@@ -46,11 +46,6 @@
   color: #fff;
 }
 
-.totalAvecRemise {
-  border-top: 1px solid rgba(255,255,255,0.5);
-  padding: 15px 30px;
-  font-size: 20px;
-  font-weight: bold;
-  text-align: left;
-  color: #fff;
+#totalAvecRemise {
+  visibility: hidden;
 }

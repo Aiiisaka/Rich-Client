@@ -1,28 +1,39 @@
 {{page-title "Step1"}}
-<h1>Sélectionnez vos produits</h1>
-<div class="form-row">
-  <div class="inline-block">
-    <label>
-      Produits disponibles :
-      <MultiSelect @elements={{this.dispoItems}}
-                   @selected={{this.dispoItems_}}
-                   @onChange={{this.changeDispo}}/>
-    </label>
+  <h1 style="text-align:center; text-decoration:underline;">Sélectionnez vos produits</h1>
+
+  <br><br><br>
+
+  <div class="container">
+      <div class="row" style="margin: 0; right:50%">
+          <div class="col-4" style="text-align:center;">
+            <label style="font-size: 20px;">Produits disponibles :</label>
+            <br>
+            <label style="font-size: 18px;">
+              <MultiSelect @elements={{this.dispoItems}} @selected={{this.dispoItems_}} @onChange={{this.changeDispo}}></MultiSelect>
+            </label>
+          </div>
+
+          <div class="col-4" style="text-align:center;">
+            <br><br>
+            <button style="border: 2px solid orange;" class="btn btn-outline-warning list-btn" {{action "add" this.dispoItems this.includedItems this.dispoItems_}}><div class="glyphicon glyphicon-step-forward" ></div></button><br>
+            <button style="border: 2px solid orange;" class="btn btn-outline-warning list-btn" {{action "add" this.dispoItems this.includedItems this.dispoItems}}><div class="glyphicon glyphicon-fast-forward" ></div></button><br>
+            <button style="border: 2px solid orange;" class="btn btn-outline-warning list-btn" {{action "add" this.includedItems this.dispoItems this.includedItems_}}><div class="glyphicon glyphicon-step-backward" ></div></button><br>
+            <button style="border: 2px solid orange;" class="btn btn-outline-warning list-btn" {{action "add" this.includedItems this.dispoItems this.includedItems}}><div class="glyphicon glyphicon-fast-backward" ></div></button>
+          </div>
+
+          <div class="col-4" style="text-align:center;">
+            <label style="font-size: 20px;">Produits à inclure :</label>
+            <br>
+            <label style="font-size: 18px;">
+              <MultiSelect @elements={{this.includedItems}} @selected={{this.includedItems_}} @onChange={{this.changeIncluded}}></MultiSelect>
+            </label>
+          </div>
+      </div>
   </div>
-  <div class="inline-block">
-    <button class="btn btn-primary list-btn" {{action "add" this.dispoItems this.includedItems this.dispoItems_}}><div class="glyphicon glyphicon-step-forward" ></div></button><br>
-    <button class="btn btn-primary list-btn" {{action "add" this.dispoItems this.includedItems this.dispoItems}}><div class="glyphicon glyphicon-fast-forward" ></div></button><br>
-    <button class="btn btn-primary list-btn" {{action "add" this.includedItems this.dispoItems this.includedItems_}}><div class="glyphicon glyphicon-step-backward" ></div></button><br>
-    <button class="btn btn-primary list-btn" {{action "add" this.includedItems this.dispoItems this.includedItems}}><div class="glyphicon glyphicon-fast-backward" ></div></button>
+
+  <br><br>
+
+  <div style="text-align:center;">
+    <button class="btn btn-outline-secondary" style="font-size:18px; border: 5px solid grey;">Passer à l'étape suivante</button>
   </div>
-  <div class="inline-block">
-    <label>
-      Produits à inclure :
-      <MultiSelect @elements={{this.includedItems}}
-                   @selected={{this.includedItems_}}
-                   @onChange={{this.changeIncluded}}/>
-    </label>
-  </div>
-  <button class="btn btn-primary">Passer à l'étape suivante</button>
-</div>
 {{outlet}}

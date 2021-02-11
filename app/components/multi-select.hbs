@@ -1,4 +1,5 @@
 <select size="10" ...attributes multiple="multiple" {{on "change" this.change}}>
+  <option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
   {{#each @elements as |elm|}}
     <option value={{elm.id}} selected={{array-contains @selected elm this.id}}>{{elm.title}}</option>
   {{/each}}

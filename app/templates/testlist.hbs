@@ -1,0 +1,9 @@
+{{page-title "TestList"}}
+  <ul>
+    {{#each @model as |contacts|}}
+      <li>{{contacts.nom}}</li>
+    {{/each}}
+  </ul>
+
+  <LinkTo @route="testnew">Ajouter</LinkTo>
+{{outlet}}

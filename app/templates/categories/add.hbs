@@ -1,0 +1,16 @@
+{{page-title "Ajouter"}}
+  <br>
+  <div class="row text-center">
+    <div class="col">
+      <Input @value={{@model.nom}} placeholder="Entrez le nom de la catégorie" class="form-control"/>
+    </div>
+  </div>
+  <br>
+  <div class="row text-center">
+    <div class="col">
+      <button class="btn btn-dark" {{action "save" @model}}>Enregister</button>
+      &nbsp;&nbsp;&nbsp;
+      <button class="btn btn-secondary" {{action "annuler"}}>Annuler</button>
+    </div>
+  </div>
+{{outlet}}

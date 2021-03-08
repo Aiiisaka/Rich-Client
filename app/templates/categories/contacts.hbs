@@ -1,0 +1,61 @@
+{{page-title "Catégories"}}
+  <div class="card text-center border-info mb-3">
+
+    <div class="card-header">
+      <h3>Catégories</h3>
+    </div>
+
+    <div class="card-body">
+      <br>
+      <h3 class="card-title"><b>Liste des Catégories :</b></h3>
+      <br>
+      <input type="text" placeholder="Filtrer ..." class="form-control ng-pristine ng-valid ng-touched">
+      <br>
+      <table class="table table-striped table-bordered border-secondary">
+
+        <thead class="table-dark">
+        <tr>
+          <td>Nom</td>
+        </tr>
+        </thead>
+
+        <tbody class="table-light">
+        {{#each @model.category as |cat|}}
+          <tr>
+            <td>{{cat.nom}}</td>
+            <td>
+              <LinkTo @route="contacts.categories.update" @model={{cat.id}} class="btn btn-primary btn-xs">
+                <i class="glyphicon glyphicon-edit"/>
+              </LinkTo>
+
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+              <a class="btn btn-danger btn-xs" {{action "delete" cat}}>
+                <span class="glyphicon glyphicon-remove-circle"></span>
+              </a>
+            </td>
+          </tr>
+        {{/each}}
+
+        </tbody>
+
+      </table>
+
+      {{#if @model.deletedsCount}}
+        <br>
+        <button class="btn btn-danger" {{action "cancelDeletion" @model.deleteds}}>Annuler la suppression ({{@model.deletedsCount}})</button>
+        &nbsp;&nbsp;&nbsp;
+        <button class="btn btn-success" {{action "confirmDeletion" @model.deleteds}}>Confirmer la suppression ({{@model.deletedsCount}})</button>
+      {{/if}}
+    </div>
+
+    <br><br>
+
+    <div class="card-footer">
+      <br>
+      <p class="lead"><LinkTo @route="categories.add">Ajouter</LinkTo></p>
+    </div>
+
+  </div>
+
+{{outlet}}

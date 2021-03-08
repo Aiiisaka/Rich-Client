@@ -1,0 +1,7 @@
+{{page-title "TestNew"}}
+  <Input @value={{@model.nom}} placeholder="Entrez votre nom"/>
+  <Input @value={{@model.prenom}} placeholder="Entrez votre prenom"/>
+  <Input @value={{@model.email}} placeholder="Entrez votre email"/>
+  &nbsp;
+  <button {{action "save" @model}}>Enregister</button>
+{{outlet}}

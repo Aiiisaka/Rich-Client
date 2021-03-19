@@ -1,0 +1,36 @@
+{{page-title "Index"}}
+  <form class="ui form">
+      <br>
+      <h2 class="ui center aligned header dividing">Connexion</h2>
+      <br>
+
+      <div class="three fields">
+        <div class="field"></div>
+        <div class="field required">
+          <label>Identifiant</label>
+          <div class="ui input">
+            <Input type="email" @value={{@model.email}} placeholder="email@email.email"/>
+          </div>
+        </div>
+        <div class="field"></div>
+      </div>
+
+      <div class="three fields">
+        <div class="field"></div>
+        <div class="field required">
+          <label>Password</label>
+          <div class="ui input">
+            <Input type="password" @value={{@model.password}} placeholder="Password"/>
+          </div>
+        </div>
+        <div class="field"></div>
+      </div>
+
+      <div class="ui grid">
+        <div class="six wide column"></div>
+        <div class="ten wide column">
+          <button class="ui button black ajax _connect floated" {{ action "login" @model }} type="submit">Connexion ...</button>
+        </div>
+      </div>
+  </form>
+{{outlet}}

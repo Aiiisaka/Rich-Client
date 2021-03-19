@@ -1,0 +1,44 @@
+{{page-title "Add"}}
+  <div class="ui grid">
+    <div class="column two wide"></div>
+    <div class="column twelve wide">
+      <fieldset>
+        <legend>&nbsp;Ajouter une section&nbsp;</legend>
+          <form class="ui form">
+            <br>
+            <h2 class="ui center aligned header dividing">Add Section</h2>
+            <br>
+
+            <div class="three fields">
+              <div class="field"></div>
+              <div class="field required">
+                <label>Section name</label>
+                <div class="ui input">
+                  <Input type="text" @value={{@model.name}} placeholder="Name"/>
+                </div>
+              </div>
+              <div class="field"></div>
+            </div>
+
+            <div class="three fields">
+              <div class="field"></div>
+              <div class="field required">
+                <label>Section description</label>
+                <div class="ui input">
+                  <Input type="text" @value={{@model.description}} placeholder="Description"/>
+                </div>
+              </div>
+              <div class="field"></div>
+            </div>
+
+            <div class="ui grid">
+              <div class="six wide column"></div>
+              <div class="ten wide column">
+                <button class="ui button black ajax _connect floated" {{ action "addSection" @model }} type="submit">Add Section ...</button>
+              </div>
+            </div>
+          </form>
+      </fieldset>
+    </div>
+  </div>
+{{outlet}}

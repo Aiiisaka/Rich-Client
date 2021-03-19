@@ -1,0 +1,60 @@
+{{page-title "Section"}}
+  <div class="ui green segment" style="text-align: right;">
+    <button class="ui black button" {{action "board"}}>Board</button>
+    <button class="ui black button" {{action "logout"}}>Log Out &nbsp;<i class="icon sign-out"></i></button>
+  </div>
+
+  <div class="ui grid">
+    <div class="column two wide"></div>
+    <div class="column twelve wide">
+      <fieldset>
+        <legend>&nbsp;Gestion des sections&nbsp;</legend>
+          <div class="item" style="text-align: center">
+            <button {{ action 'newSection' }} class="ui vertical animated green button">
+              <div class="hidden content">Add a new section ...</div>
+              <div class="visible content">
+                <i class="icon clipboard list"></i>New section
+              </div>
+            </button>
+
+            <button {{ action 'newProduct' }} class="ui vertical animated green button">
+              <div class="hidden content">Add a new product ...</div>
+              <div class="visible content">
+                <i class="icon box"></i>New product
+              </div>
+            </button>
+          </div>
+
+          <br>
+
+          <div class="item" style="text-align: center">
+            <input style="text-align: center" type="search" placeholder="Selection filter">
+          </div>
+
+          <br>
+
+          <div class="item">
+            <h3>Liste des sections</h3>
+            <div class="ui celled list">
+              {{#each @model as |section|}}
+                <div class="item">
+                  <div class="right floated content">
+                    <div class="ui button">&nbsp;&nbsp;&nbsp;<i class="icon bars"/></div>
+                    &nbsp;
+                    <div class="ui black button">&nbsp;&nbsp;&nbsp;<i class="icon edit"/></div>
+                    &nbsp;
+                    <div class="ui red button">&nbsp;&nbsp;&nbsp;<i class="icon remove"/></div>
+                  </div>
+                  {{section.name}}
+                  <div class="content">
+                    <div class="description">{{section.description}}</div>
+                  </div>
+                </div>
+              {{/each}}
+            </div>
+          </div>
+      </fieldset>
+    </div>
+  </div>
+
+{{outlet}}

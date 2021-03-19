@@ -1,0 +1,30 @@
+{{page-title "Board"}}
+  <div class="ui green segment" style="text-align: right;">
+    <div class="ui orange label">{{@model.employee.email}}</div>&nbsp;
+    <button class="ui black button" {{action "store"}}>Sections</button>
+    <button class="ui black button" {{action "logout"}}>Log Out &nbsp;<i class="icon sign-out"></i></button>
+  </div>
+
+  <div class="ui grid">
+    <div class="column two wide"></div>
+    <div class="column twelve wide">
+      <fieldset>
+        <div class="item">
+          <h3>Orders</h3>
+          <div class="ui celled list">
+            {{#each @model.order as |order|}}
+              <div class="item">
+                <LinkTo @route="order" @model={{order.id}}>
+                  <div class="content">
+                    <div class="description">{{order.dateCreation}}</div>
+                    <div class="ui circular label">{{order.orderdetails.length}}</div>
+                  </div>
+                </LinkTo>
+              </div>
+            {{/each}}
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+{{outlet}}

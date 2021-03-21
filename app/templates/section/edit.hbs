@@ -1,2 +1,44 @@
 {{page-title "Edit"}}
+  <div class="ui grid">
+    <div class="column two wide"></div>
+    <div class="column twelve wide">
+      <fieldset>
+        <legend>&nbsp;Modifier une section&nbsp;</legend>
+        <form class="ui form">
+          <br>
+          <h2 class="ui center aligned header dividing">Edit Section</h2>
+          <br>
+
+          <div class="three fields">
+            <div class="field"></div>
+            <div class="field required">
+              <label>Section name</label>
+              <div class="ui input">
+                <Input type="text" @value={{@model.name}} placeholder="Name" required/>
+              </div>
+            </div>
+            <div class="field"></div>
+          </div>
+
+          <div class="three fields">
+            <div class="field"></div>
+            <div class="field required">
+              <label>Section description</label>
+              <div class="ui input">
+                <Input type="text" @value={{@model.description}} placeholder="Description" required/>
+              </div>
+            </div>
+            <div class="field"></div>
+          </div>
+
+          <div class="ui grid">
+            <div class="six wide column"></div>
+            <div class="ten wide column">
+              <button class="ui button green basic ajax _connect floated" {{ action "editSection" @model }} type="submit">Edit Section ...</button>
+            </div>
+          </div>
+        </form>
+      </fieldset>
+    </div>
+  </div>
 {{outlet}}

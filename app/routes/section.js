@@ -3,8 +3,9 @@ import { action } from '@ember/object';
 
 export default class SectionRoute extends Abstractroute {
   model() {
-    return this.store.findAll('section');
+    return this.store.findAll('section', { include: 'products' });
   }
+
   @action logout() {
     this.transitionTo('logout');
   }
@@ -18,6 +19,19 @@ export default class SectionRoute extends Abstractroute {
   }
 
   @action newProduct() {
-    this.transitionTo('section.addProduct');
+    this.transitionTo('section.add-product');
+  }
+
+  @action product(section) {
+    console.log(section.id);
+    this.transitionTo('list-product');
+  }
+
+  @action editSection() {
+    this.transitionTo('section.edit');
+  }
+
+  @action deleteSection() {
+    this.transitionTo('section.delete');
   }
 }

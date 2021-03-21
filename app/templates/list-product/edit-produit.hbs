@@ -1,12 +1,12 @@
-{{page-title "AddProduct"}}
+{{page-title "EditProduit"}}
   <div class="ui grid">
     <div class="column two wide"></div>
     <div class="column twelve wide">
       <fieldset>
-        <legend>&nbsp;Ajouter un produit&nbsp;</legend>
+        <legend>&nbsp;Modifier un produit&nbsp;</legend>
         <form class="ui form">
           <br>
-          <h2 class="ui center aligned header dividing">Add Product</h2>
+          <h2 class="ui center aligned header dividing">Edit Product</h2>
           <br>
 
           <div class="three fields">
@@ -25,7 +25,7 @@
             <div class="field required">
               <label>Product price</label>
               <div class="ui input">
-                <Input type="number" @value={{@model.price}} placeholder="Price" required/>
+                <Input type="text" @value={{@model.price}} placeholder="Price" required/>
               </div>
             </div>
             <div class="field"></div>
@@ -36,7 +36,7 @@
             <div class="field required">
               <label>Product promotion</label>
               <div class="ui input">
-                <Input type="number" @value={{@model.promotion}} placeholder="Promotion" required/>
+                <Input type="text" @value={{@model.promotion}} placeholder="Promotion" required/>
               </div>
             </div>
             <div class="field"></div>
@@ -45,7 +45,7 @@
           <div class="ui grid">
             <div class="six wide column"></div>
             <div class="ten wide column">
-              <button class="ui button black ajax _connect floated" {{ action "addProduct" @model }} type="submit">Add Product ...</button>
+              <button class="ui button green basic ajax _connect floated" {{ action "editProduct" @model }} type="submit">Edit Product ...</button>
             </div>
           </div>
         </form>

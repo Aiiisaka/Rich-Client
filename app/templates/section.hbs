@@ -1,5 +1,5 @@
 {{page-title "Section"}}
-  <div class="ui green segment" style="text-align: right;">
+  <div class="ui orange segment" style="text-align: right;">
     <button class="ui black button" {{action "board"}}>Board</button>
     <button class="ui black button" {{action "logout"}}>Log Out &nbsp;<i class="icon sign-out"></i></button>
   </div>
@@ -8,7 +8,7 @@
     <div class="column two wide"></div>
     <div class="column twelve wide">
       <fieldset>
-        <legend>&nbsp;Gestion des sections&nbsp;</legend>
+        <legend>&nbsp;Gestion des sections ({{@model.length}})&nbsp;</legend>
           <div class="item" style="text-align: center">
             <button {{ action 'newSection' }} class="ui vertical animated green button">
               <div class="hidden content">Add a new section ...</div>
@@ -17,7 +17,7 @@
               </div>
             </button>
 
-            <button {{ action 'newProduct' }} class="ui vertical animated green button">
+            <button {{action 'newProduct'}} class="ui vertical animated green button">
               <div class="hidden content">Add a new product ...</div>
               <div class="visible content">
                 <i class="icon box"></i>New product
@@ -28,7 +28,7 @@
           <br>
 
           <div class="item" style="text-align: center">
-            <input style="text-align: center" type="search" placeholder="Selection filter">
+            <input style="text-align: center" type="search" placeholder="Selection filter"/>
           </div>
 
           <br>
@@ -39,11 +39,11 @@
               {{#each @model as |section|}}
                 <div class="item">
                   <div class="right floated content">
-                    <div class="ui button">&nbsp;&nbsp;&nbsp;<i class="icon bars"/></div>
+                    <div class="ui button" {{action 'product' section}}>&nbsp;&nbsp;&nbsp;<i class="icon bars"/></div>
                     &nbsp;
-                    <div class="ui black button">&nbsp;&nbsp;&nbsp;<i class="icon edit"/></div>
+                    <LinkTo class="ui black button" @route="section.edit" @model={{section.id}}>&nbsp;&nbsp;&nbsp;<i class="icon edit"/></LinkTo>
                     &nbsp;
-                    <div class="ui red button">&nbsp;&nbsp;&nbsp;<i class="icon remove"/></div>
+                    <LinkTo class="ui red button" @route="section.delete" {{action 'deleteSection' section}} @model={{section.id}}>&nbsp;&nbsp;&nbsp;<i class="icon remove"/></LinkTo>
                   </div>
                   {{section.name}}
                   <div class="content">
@@ -56,5 +56,4 @@
       </fieldset>
     </div>
   </div>
-
 {{outlet}}

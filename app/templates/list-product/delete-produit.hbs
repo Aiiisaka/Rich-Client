@@ -1,0 +1,23 @@
+{{page-title "DeleteProduit"}}
+  <div class="ui grid">
+    <div class="column two wide"></div>
+    <div class="column twelve wide">
+      <fieldset>
+        <legend>&nbsp;Supprimer un produit&nbsp;</legend>
+        <form class="ui form">
+          <br>
+          <h2 class="ui center aligned header dividing">Delete Product : {{ @model.name }}</h2>
+          <br>
+
+          <div class="ui grid">
+            <div class="sixteen wide column" style="text-align: center">
+              <button class="ui button red basicajax _connect floated" {{ action "deleteProduct" @model }}>Delete {{ @model.name }}</button>
+              <br><br>
+              <LinkTo class="ui button grey basic ajax _connect floated" @route="list-product">Close</LinkTo>
+            </div>
+          </div>
+        </form>
+      </fieldset>
+    </div>
+  </div>
+{{outlet}}

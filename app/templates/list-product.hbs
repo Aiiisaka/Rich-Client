@@ -1,0 +1,48 @@
+{{page-title "ListeProduit"}}
+  <div class="ui orange segment" style="text-align: right;">
+    <button class="ui black button" {{action "section"}}>Sections</button>
+    <button class="ui black button" {{action "board"}}>Board</button>
+    <button class="ui black button" {{action "logout"}}>Log Out &nbsp;<i class="icon sign-out"></i></button>
+  </div>
+
+  <div class="ui grid">
+    <div class="column two wide"></div>
+    <div class="column twelve wide">
+      <fieldset>
+        <legend>&nbsp;Gestion d'une section&nbsp;</legend>
+        <div class="item" style="text-align: center">
+          <button {{ action 'newProduct' }} class="ui vertical animated green button">
+            <div class="hidden content">Add a new product ...</div>
+            <div class="visible content">
+              <i class="icon box"></i>New product
+            </div>
+          </button>
+        </div>
+
+        <br>
+
+        <div class="item" style="text-align: center">
+          <input style="text-align: center" type="search" placeholder="Selection filter">
+        </div>
+
+        <br>
+
+        <div class="item">
+          <h3>Liste des produits : {{ @model.name }} ({{ @model.length }})</h3>
+          <div class="ui celled list">
+            {{#each @model as |product|}}
+              <div class="item">
+                <div class="right floated content">
+                  <LinkTo class="ui black button" @route="list-product.edit-produit" @model={{product.id}}>&nbsp;&nbsp;&nbsp;<i class="icon edit"/></LinkTo>
+                  &nbsp;
+                  <LinkTo class="ui red button" @route="list-product.delete-produit" {{ action 'deleteProduct' section }} @model={{product.id}}>&nbsp;&nbsp;&nbsp;<i class="icon remove"/></LinkTo>
+                </div>
+                {{product.name}}
+              </div>
+            {{/each}}
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+{{outlet}}

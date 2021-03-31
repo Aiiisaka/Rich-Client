@@ -9,7 +9,7 @@
     <div class="column two wide"></div>
     <div class="column twelve wide">
       <fieldset>
-        <legend>&nbsp;Gestion d'une section&nbsp;</legend>
+        <legend>&nbsp;Managing a section&nbsp;</legend>
         <div class="item" style="text-align: center">
           <button {{ action 'newProduct' }} class="ui vertical animated green button">
             <div class="hidden content">Add a new product ...</div>
@@ -28,7 +28,7 @@
         <br>
 
         <div class="item">
-          <h3>Liste des produits : {{ @model.name }} ({{ @model.length }})</h3>
+          <h3>Product list : {{ @model.name }} ({{ @model.length }})</h3>
           <div class="ui celled list">
             {{#each @model as |product|}}
               <div class="item">
@@ -37,7 +37,9 @@
                   &nbsp;
                   <LinkTo class="ui red button" @route="list-product.delete-produit" {{ action 'deleteProduct' section }} @model={{product.id}}>&nbsp;&nbsp;&nbsp;<i class="icon remove"/></LinkTo>
                 </div>
-                {{product.name}}
+                <b>
+                  <div style="font-size: larger">&nbsp;•&nbsp;{{product.name}}</div>
+                </b>
               </div>
             {{/each}}
           </div>

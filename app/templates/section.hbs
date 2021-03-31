@@ -8,7 +8,7 @@
     <div class="column two wide"></div>
     <div class="column twelve wide">
       <fieldset>
-        <legend>&nbsp;Gestion des sections ({{@model.length}})&nbsp;</legend>
+        <legend>&nbsp;Section management ({{@model.length}})&nbsp;</legend>
           <div class="item" style="text-align: center">
             <button {{ action 'newSection' }} class="ui vertical animated green button">
               <div class="hidden content">Add a new section ...</div>
@@ -34,7 +34,7 @@
           <br>
 
           <div class="item">
-            <h3>Liste des sections</h3>
+            <h3>Section list</h3>
             <div class="ui celled list">
               {{#each @model as |section|}}
                 <div class="item">
@@ -45,10 +45,9 @@
                     &nbsp;
                     <LinkTo class="ui red button" @route="section.delete" {{action 'deleteSection' section}} @model={{section.id}}>&nbsp;&nbsp;&nbsp;<i class="icon remove"/></LinkTo>
                   </div>
-                  {{section.name}}
-                  <div class="content">
-                    <div class="description">{{section.description}}</div>
-                  </div>
+                  <b>
+                    <div style="font-size: larger">&nbsp;•&nbsp;{{section.name}}</div>
+                  </b>
                 </div>
               {{/each}}
             </div>

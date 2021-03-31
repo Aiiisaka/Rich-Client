@@ -1,9 +1,12 @@
 import Route from '@ember/routing/route';
 import { action } from '@ember/object';
+import RSVP from 'rsvp';
 
 export default class ListeProduitRoute extends Route {
   model() {
-    return this.store.findAll('product');
+    return RSVP.hash({
+      product: this.store.query('product'),
+    });
   }
 
   @action logout() {

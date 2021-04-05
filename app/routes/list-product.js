@@ -3,8 +3,12 @@ import { action } from '@ember/object';
 import RSVP from 'rsvp';
 
 export default class ListeProduitRoute extends Route {
-  model() {
-    return {};
+  model(params) {
+    return RSVP.hash({
+      sections: this.store.findRecord('section', params.section_id),
+      products: this.store.findAll('product'),
+      product: {},
+    });
   }
 
   @action section() {

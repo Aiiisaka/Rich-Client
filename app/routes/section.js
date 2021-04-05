@@ -14,8 +14,7 @@ export default class SectionRoute extends Abstractroute {
     this.transitionTo('section.add-product');
   }
 
-  @action product(section) {
-    console.log(section.id);
+  @action product() {
     this.transitionTo('list-product');
   }
 

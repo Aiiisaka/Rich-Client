@@ -38,7 +38,7 @@
               {{#each @model as |section|}}
                 <div class="item">
                   <div class="right floated content">
-                    <div class="ui button" {{action 'product' section}}>&nbsp;&nbsp;&nbsp;<i class="icon bars"/></div>
+                    <LinkTo class="ui button" @route="list-product" {{action 'product' section}} @model={{section.id}}>&nbsp;&nbsp;&nbsp;<i class="icon bars"/></LinkTo>
                     &nbsp;
                     <LinkTo class="ui black button" @route="section.edit" @model={{section.id}}>&nbsp;&nbsp;&nbsp;<i class="icon edit"/></LinkTo>
                     &nbsp;

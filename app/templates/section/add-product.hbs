@@ -12,7 +12,25 @@
           <div class="three fields">
             <div class="field"></div>
             <div class="field required">
-              <label>Section name</label>
+              <UiDropdown class="selection" @selected={{@model.section}} @onChange={{fn (mut @model.section)}} as |execute mapper|>
+                <div class="default text">Section</div>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                  {{#each @model.sections as |section|}}
+                    <div data-value="{{map-value mapper section}}" class="item">
+                      {{section.name}}
+                    </div>
+                  {{/each}}
+                </div>
+              </UiDropdown>
+            </div>
+            <div class="field"></div>
+          </div>
+
+          <div class="three fields">
+            <div class="field"></div>
+            <div class="field required">
+              <label>Product name</label>
               <div class="ui input">
                 <Input type="text" @value={{@model.name}} placeholder="Name" required/>
               </div>
@@ -23,17 +41,21 @@
           <div class="three fields">
             <div class="field"></div>
             <div class="field required">
-              <UiDropdown class="selection" @selected={{@model.section}} @onChange={{fn (mut @model.section)}} as |execute mapper|>
-                <div class="default text">Packs</div>
-                <i class="dropdown icon"></i>
-                <div class="menu">
-                  {{#each @model.sections as |section|}}
-                    <div data-value="{{map-value mapper section}}" class="item">
-                      {{section.name}}
-                    </div>
-                  {{/each}}
-                </div>
-              </UiDropdown>
+              <label>Product price</label>
+              <div class="ui input">
+                <Input type="number" @value={{@model.price}} placeholder="Price" required/>
+              </div>
+            </div>
+            <div class="field"></div>
+          </div>
+
+          <div class="three fields">
+            <div class="field"></div>
+            <div class="field required">
+              <label>Product promotion</label>
+              <div class="ui input">
+                <Input type="number" @value={{@model.promotion}} placeholder="Promotion" required/>
+              </div>
             </div>
             <div class="field"></div>
           </div>

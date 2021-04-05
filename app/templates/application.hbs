@@ -1,3 +1,18 @@
 {{page-title "Projet6"}}
   <h1 class="panel-heading" style="text-align: center">STORE</h1>
+
+  <div class="ui inverted basic segment menu">
+    <div class="left menu">
+      <button class="ui orange label" {{action "board"}}>Home</button>
+    </div>
+
+    {{#if this.userAuth.user}}
+        <div class="right menu">
+          <div class="ui orange label">{{this.userAuth.user.email}}</div>&nbsp;
+          <button class="ui orange label" {{action "logout"}}>Log Out &nbsp;<i class="icon sign-out"></i></button>
+        </div>
+    {{/if}}
+
+  </div>
+
 {{outlet}}

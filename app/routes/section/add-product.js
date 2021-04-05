@@ -8,6 +8,6 @@ export default class SectionAddProductRoute extends Route {
 
   @action addProduct(product) {
     let newProduct = this.store.createRecord('product', product);
-    newProduct.save().then(() => this.transitionTo('product'));
+    newProduct.save().then(() => this.transitionTo('section'));
   }
 }

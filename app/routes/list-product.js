@@ -4,17 +4,7 @@ import RSVP from 'rsvp';
 
 export default class ListeProduitRoute extends Route {
   model() {
-    return RSVP.hash({
-      product: this.store.query('product'),
-    });
-  }
-
-  @action logout() {
-    this.transitionTo('logout');
-  }
-
-  @action board() {
-    this.transitionTo('board');
+    return {};
   }
 
   @action section() {

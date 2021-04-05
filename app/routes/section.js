@@ -6,14 +6,6 @@ export default class SectionRoute extends Abstractroute {
     return this.store.findAll('section', { include: 'products' });
   }
 
-  @action logout() {
-    this.transitionTo('logout');
-  }
-
-  @action board() {
-    this.transitionTo('board');
-  }
-
   @action newSection() {
     this.transitionTo('section.add');
   }

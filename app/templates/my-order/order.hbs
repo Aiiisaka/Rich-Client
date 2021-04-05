@@ -50,6 +50,29 @@
     <div class="column twelve wide">
       <fieldset>
         <legend>&nbsp;To Prepare&nbsp;</legend>
+
+        <div class="ui items">
+          <hr>
+          {{#each @model.products as |product|}}
+            <div class="item">
+              <div class="content">
+                <br>
+                {{product.name}}
+                <br><br>
+                <div class="meta">
+                  <span>Quantity : {{product.quantity}}</span>
+                </div>
+                <div class="extra">
+                  Price : {{product.price}} €
+                  <br>
+                  {{product.promotion}} €
+                </div>
+                <br>
+              </div>
+            </div>
+            <hr>
+          {{/each}}
+        </div>
       </fieldset>
     </div>
 

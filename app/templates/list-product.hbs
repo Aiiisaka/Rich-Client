@@ -26,15 +26,16 @@
         <br>
 
         <div class="item">
-          <h3>Product list : {{ @model.name }} ({{ @model.length }})</h3>
+          <h3>Product list : {{ @model.section.name }} ({{ @model.section.products.length }})</h3>
           <div class="ui celled list">
-            {{#each @model as |product|}}
+            {{#each @model.products as |product|}}
               <div class="item">
                 <div class="right floated content">
                   <LinkTo class="ui black button" @route="list-product.edit-produit" @model={{product.id}}>&nbsp;&nbsp;&nbsp;<i class="icon edit"/></LinkTo>
                   &nbsp;
                   <LinkTo class="ui red button" @route="list-product.delete-produit" {{ action 'deleteProduct' section }} @model={{product.id}}>&nbsp;&nbsp;&nbsp;<i class="icon remove"/></LinkTo>
                 </div>
+
                 <b>
                   <div style="font-size: larger">&nbsp;•&nbsp;{{product.name}}</div>
                 </b>

@@ -1,14 +1,14 @@
-import Route from '@ember/routing/route';
+import Abstractroute from './abstractroute';
 import { action } from '@ember/object';
-import RSVP from 'rsvp';
 
-export default class ListeProduitRoute extends Route {
+export default class ListeProduitRoute extends Abstractroute {
   model(params) {
-    return RSVP.hash({
-      sections: this.store.findRecord('section', params.section_id),
-      products: this.store.findAll('product'),
-      product: {},
-    });
+    var model = {};
+
+    model.section = this.store.findRecord('section', params.section_id);
+    model.products = this.store.findRecord('product', params.section_id);
+
+    return model;
   }
 
   @action section() {

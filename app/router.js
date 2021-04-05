@@ -23,6 +23,9 @@ Router.map(function () {
     this.route('edit-produit', { path: 'product/edit/:product_id' });
   });
 
-  this.route('order', { path: 'order/:order_id' });
+  this.route('my-order', function () {
+    this.route('order', { path: 'prepare/:order_id' });
+  });
+
   this.route('abstractroute');
 });

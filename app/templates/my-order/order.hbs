@@ -1,0 +1,91 @@
+{{page-title "Order"}}
+  <div style="text-align: right;">
+    <button class="ui black button" {{action "board"}}>Board<i class="icon arrow right"></i></button>
+  </div>
+
+  <div class="ui grid">
+    <div class="column two wide"></div>
+
+    <div class="column five wide">
+      <fieldset>
+        <legend>&nbsp;Client&nbsp;</legend>
+        <b>
+          User name : {{@model.order.user.name}}
+          <br>
+          User email : {{@model.order.user.email}}
+        </b>
+      </fieldset>
+    </div>
+
+    <div class="column seven wide">
+      <fieldset>
+        <legend>&nbsp;Command&nbsp;</legend>
+        <b>
+          <div class="ui list">
+            <div class="item">
+              <div class="left floated content">
+                Order N°{{@model.order.id}}
+                <br>
+                Date order : {{moment-format @model.order.dateCreation 'DD-MM-YYYY'}}
+                <br>
+                Time slot : {{moment-format @model.order.idTimeSlot.slotDate 'LLLL'}}
+              </div>
+
+              <div class="right floated content">
+                Quantity : {{@model.products.length}}
+                <br>
+                Amount : {{@model.order.amount}} €
+                <br>
+                Rest to pay : {{@model.order.toPay}} €
+              </div>
+            </div>
+          </div>
+        </b>
+      </fieldset>
+    </div>
+
+    <div class="column two wide"></div>
+    <div class="column two wide"></div>
+
+    <div class="column twelve wide">
+      <fieldset>
+        <legend>&nbsp;To Prepare&nbsp;</legend>
+      </fieldset>
+    </div>
+
+    <div class="column two wide"></div>
+    <div class="column two wide"></div>
+
+    <div class="column twelve wide">
+      <fieldset>
+        <legend>&nbsp;Advancement&nbsp;</legend>
+        <div class="ui progress orange">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+        </div>
+
+        <div style="text-align: center">
+          <b>
+            <h4>
+              {{@model.order.itemsNumber}}/{{@model.order.missingNumber}} prepared products
+            </h4>
+          </b>
+        </div>
+
+        <div class="ui list">
+          <div class="item">
+            <div class="left floated content">
+              <button class="ui red button"><i class="icon remove"/>&nbsp;&nbsp;Delete All</button>
+            </div>
+            <div class="right floated content">
+              <button class="ui green button"><i class="icon check"/>&nbsp;&nbsp;Command Completed</button>
+            </div>
+          </div>
+        </div>
+
+      </fieldset>
+    </div>
+  </div>
+
+{{outlet}}

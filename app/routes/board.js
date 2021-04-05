@@ -16,6 +16,10 @@ export default class BoardRoute extends Abstractroute {
     }
   }
 
+  @action order() {
+    this.transitionTo('my-order.order');
+  }
+
   @action section() {
     this.transitionTo('section');
   }

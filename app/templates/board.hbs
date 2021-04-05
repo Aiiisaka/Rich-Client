@@ -8,21 +8,27 @@
     <div class="column twelve wide">
       <fieldset>
         <div class="item">
-          <h3>Orders</h3>
+          <h3>List of My Orders</h3>
           <div class="ui celled list">
-            {{#each @model.order as |order|}}
+            {{#each @model.orders as |order|}}
+              <LinkTo @route="my-order.order" {{action 'order' order}} @model={{order.id}}>
               <div class="item">
-                <LinkTo @route="order" @model={{order.id}}>
                   <div class="content">
-                    <div class="description">{{order.dateCreation}}</div>
-                    <div class="ui circular label">{{order.orderdetails.length}}</div>
+                    <div class="description">
+                      <div style="text-align: left">
+                        Order date : {{moment-format order.dateCreation 'DD-MM-YYYY'}}
+                      </div>
+                      <div style="text-align: right">
+                        Rest <div class="ui orange circular label">{{order.orderdetail.length}}</div> product(s)</div>
+                    </div>
                   </div>
-                </LinkTo>
               </div>
+              </LinkTo>
             {{/each}}
           </div>
         </div>
       </fieldset>
+
     </div>
   </div>
 {{outlet}}

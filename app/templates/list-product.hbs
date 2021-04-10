@@ -9,12 +9,12 @@
       <fieldset>
         <legend>&nbsp;Managing a section&nbsp;</legend>
         <div class="item" style="text-align: center">
-          <button {{ action 'newProduct' }} class="ui vertical animated green button">
+          <LinkTo {{ action 'newProduct' }} @route="list-product.add-produit" @model={{@model.id}} class="ui vertical animated green button">
             <div class="hidden content">Add a new product ...</div>
             <div class="visible content">
               <i class="icon box"></i>New product
             </div>
-          </button>
+          </LinkTo>
         </div>
 
         <br>

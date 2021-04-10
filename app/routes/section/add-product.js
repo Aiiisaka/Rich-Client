@@ -7,6 +7,7 @@ export default class SectionAddProductRoute extends Route {
     return RSVP.hash({
       produit: {},
       sections: this.store.findAll('section'),
+      products: this.store.findAll('product'),
     });
   }
 

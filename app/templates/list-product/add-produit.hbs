@@ -42,6 +42,25 @@
             <div class="field"></div>
           </div>
 
+          <div class="three fields">
+            <div class="field"></div>
+            <div class="field">
+              <label>Products pack</label>
+              <UiDropdown class="selection multiple" @selected={{@model.packs}} @onChange={{fn (mut @model.packs)}} as |execute mapper|>
+                <div class="default text">Packs</div>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                  {{#each @model.products as |product|}}
+                    <div data-value="{{map-value mapper product}}" class="item">
+                      {{product.name}}
+                    </div>
+                  {{/each}}
+                </div>
+              </UiDropdown>
+            </div>
+            <div class="field"></div>
+          </div>
+
           <div class="ui grid">
             <div class="six wide column"></div>
             <div class="ten wide column">

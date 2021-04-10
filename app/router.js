@@ -18,7 +18,7 @@ Router.map(function () {
   });
 
   this.route('list-product', { path: 'list-product/:section_id' }, function () {
-    this.route('add-produit');
+    this.route('add-produit', { path: 'product/add/:section_id' });
     this.route('delete-produit', { path: 'product/delete/:product_id' });
     this.route('edit-produit', { path: 'product/edit/:product_id' });
   });

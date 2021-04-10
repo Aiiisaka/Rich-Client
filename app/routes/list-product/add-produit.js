@@ -2,8 +2,10 @@ import Route from '@ember/routing/route';
 import { action } from '@ember/object';
 
 export default class ProduitAddProduitRoute extends Route {
-  model() {
-    return {};
+  model(params) {
+    return this.store.findRecord('section', params.section_id, {
+      include: 'products',
+    });
   }
 
   @action addProduct(product) {

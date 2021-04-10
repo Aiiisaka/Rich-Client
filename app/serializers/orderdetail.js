@@ -7,6 +7,7 @@ export default class OrderdetailSerializer extends JSONSerializer.extend(
   attrs = {
     products: { embedded: 'always' },
   };
+
   compositeKeys = ['order', 'product'];
 
   extractId(modelClass, resourceHash) {

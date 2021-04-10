@@ -13,14 +13,14 @@ export default class OrderRoute extends AbstractRoute {
   }
 
   @action productPrepared() {
-    this.transitionTo('order.product-prepared');
+    this.transitionTo('my-order.order.product-prepared');
   }
 
   @action prepared() {
-    this.transitionTo('order.prepared');
+    this.transitionTo('my-order.order.prepared');
   }
 
   @action cancel() {
-    this.transitionTo('order.cancel');
+    this.transitionTo('my-order.order.cancel');
   }
 }

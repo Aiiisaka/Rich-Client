@@ -7,6 +7,6 @@ export default class PreparedRoute extends Route {
   }
 
   @action prepareOrder(order) {
-    order.save().then(() => this.transitionTo('order'));
+    order.save().then(() => this.transitionTo('board'));
   }
 }

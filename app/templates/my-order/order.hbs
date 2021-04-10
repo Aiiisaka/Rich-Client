@@ -63,7 +63,7 @@
                   {{#if @model.prepared }}
                     <i class="icon check green">&nbsp;PREPARED</i>
                   {{else}}
-                    <LinkTo class="ui red button" @route="my-order.order.product-prepared" {{action 'productPrepared' order}} @model={{@model.order.id}}>&nbsp;&nbsp;&nbsp;<i class="icon close"/>&nbsp;PREPARED</LinkTo>
+                    <LinkTo class="ui red button" @route="my-order.order.product-prepared" {{action 'productPrepared' }} @model={{@model.order.id}}>&nbsp;&nbsp;&nbsp;<i class="icon close"/>&nbsp;PREPARED</LinkTo>
                   {{/if}}
                 </div>
                 <div style="text-align: right">
@@ -107,10 +107,10 @@
         <div class="ui list">
           <div class="item">
             <div class="left floated content">
-              <LinkTo @route="my-order.order.cancel" {{action 'cancel' order}} @model={{@model.order.id}} class="ui red button"><i class="icon remove"/>&nbsp;&nbsp;Delete All</LinkTo>
+              <LinkTo @route="my-order.order.cancel" {{action 'cancel' }} @model={{@model.order.id}} class="ui red button"><i class="icon remove"/>&nbsp;&nbsp;Delete All</LinkTo>
             </div>
             <div class="right floated content">
-              <LinkTo @route="my-order.order.prepared" {{action 'prepared' order}} @model={{@model.order.id}} class="ui green button"><i class="icon check"/>&nbsp;&nbsp;Command Completed</LinkTo>
+              <LinkTo @route="my-order.order.prepared" {{action 'prepared' }} @model={{@model.order.id}} class="ui green button"><i class="icon check"/>&nbsp;&nbsp;Command Completed</LinkTo>
             </div>
           </div>
         </div>

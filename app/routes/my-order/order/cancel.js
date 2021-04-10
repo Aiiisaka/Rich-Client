@@ -8,6 +8,6 @@ export default class MyOrderCancelRoute extends Route {
 
   @action deleteOrder(order) {
     order.deleteRecord();
-    order.save().then(() => this.transitionTo('order'));
+    order.save().then(() => this.transitionTo('board'));
   }
 }

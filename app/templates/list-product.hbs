@@ -33,7 +33,7 @@
                 <div class="right floated content">
                   <LinkTo class="ui black button" @route="list-product.edit-produit" @model={{product.id}}>&nbsp;&nbsp;&nbsp;<i class="icon edit"/></LinkTo>
                   &nbsp;
-                  <LinkTo class="ui red button" @route="list-product.delete-produit" {{ action 'deleteProduct' section }} @model={{product.id}}>&nbsp;&nbsp;&nbsp;<i class="icon remove"/></LinkTo>
+                  <LinkTo class="ui red button" @route="list-product.delete-produit" {{ action 'deleteProduct' list-product }} @model={{product.id}}>&nbsp;&nbsp;&nbsp;<i class="icon remove"/></LinkTo>
                 </div>
 
                 <b>

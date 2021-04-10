@@ -6,14 +6,14 @@
         <legend>&nbsp;Prepared product&nbsp;</legend>
         <form class="ui form">
           <br>
-          <h2 class="ui center aligned header dividing">Prepared product with this name {{@model.name}}</h2>
+          <h2 class="ui center aligned header dividing">Prepared product "{{@model.name}}"</h2>
           <br>
 
           <div class="ui grid">
             <div class="sixteen wide column" style="text-align: center">
-              <button class="ui button green basicajax _connect floated" {{ action "prepareProductOrder" @model }}>Prepared {{@model.name}}</button>
+              <button class="ui button green basicajax _connect floated" {{ action "prepareProductOrder" @model }}>Prepared "{{@model.name}}"</button>
               <br><br>
-              <LinkTo class="ui button grey basic ajax _connect floated" @route="order">Close</LinkTo>
+              <LinkTo class="ui button grey basic ajax _connect floated" @route="my-order.order">Close</LinkTo>
             </div>
           </div>
         </form>

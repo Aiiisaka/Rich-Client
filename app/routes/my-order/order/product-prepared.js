@@ -3,7 +3,7 @@ import { action } from '@ember/object';
 
 export default class ProductPreparedRoute extends Route {
   model(params) {
-    return this.store.findRecord('order', params.product_id);
+    return this.store.findRecord('product', params.product_id);
   }
 
   @action prepareProductOrder(order) {

@@ -24,8 +24,10 @@ Router.map(function () {
   });
 
   this.route('my-order', function () {
-    this.route('order', { path: 'prepare/:order_id' });
+    this.route('order', { path: 'prepare/:order_id' }, function () {
+      this.route('product-prepared', { path: 'prepared/product/:product_id' });
+      this.route('prepared', { path: 'prepared/:order_id' });
+      this.route('cancel', { path: 'cancel/:order_id' });
+    });
   });
-
-  this.route('abstractroute');
 });

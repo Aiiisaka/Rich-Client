@@ -1,0 +1,23 @@
+{{page-title "Prepared"}}
+  <div class="ui grid">
+    <div class="column two wide"></div>
+    <div class="column twelve wide">
+      <fieldset>
+        <legend>&nbsp;Prepared all products&nbsp;</legend>
+        <form class="ui form">
+          <br>
+          <h2 class="ui center aligned header dividing">Prepared Command N°{{ @model.id }}</h2>
+          <br>
+
+          <div class="ui grid">
+            <div class="sixteen wide column" style="text-align: center">
+              <button class="ui button green basicajax _connect floated" {{ action "prepareOrder" @model }}>Prepared Command N°{{ @model.id }}</button>
+              <br><br>
+              <LinkTo class="ui button grey basic ajax _connect floated" @route="order">Close</LinkTo>
+            </div>
+          </div>
+        </form>
+      </fieldset>
+    </div>
+  </div>
+{{outlet}}

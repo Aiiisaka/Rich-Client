@@ -61,9 +61,9 @@
                   {{productList.name}}
                   &nbsp;&nbsp;&nbsp;
                   {{#if @model.prepared }}
-                    <i class="icon close red">&nbsp;PREPARED</i>
-                  {{else}}
                     <i class="icon check green">&nbsp;PREPARED</i>
+                  {{else}}
+                    <LinkTo class="ui red button" @route="my-order.order.product-prepared" {{action 'productPrepared' order}} @model={{@model.order.id}}>&nbsp;&nbsp;&nbsp;<i class="icon close"/>&nbsp;PREPARED</LinkTo>
                   {{/if}}
                 </div>
                 <div style="text-align: right">
@@ -93,24 +93,24 @@
     <div class="column twelve wide">
       <fieldset>
         <legend>&nbsp;Advancement&nbsp;</legend>
-        <div class="ui indicating progress" data-value="{{@model.order.missingNumber}}"
+        <div class="ui indicating progress" data-value="{{@model.order.itemsNumber}}-{{@model.order.missingNumber}}"
              id="progress" data-total="{{@model.order.itemsNumber}}"
-             data-percent="100*{{@model.order.missingNumber}}/{{@model.order.itemsNumber}}">
+             data-percent="{{@model.order.itemsNumber}}-{{@model.order.missingNumber}}*100/{{@model.order.itemsNumber}}">
           <div class="bar">
             <div class="progress"></div>
           </div>
           <div class="label">
-            {{@model.order.missingNumber}}/{{@model.order.itemsNumber}} prepared products
+            {{@model.order.missingNumber}} product(s) no prepared.
           </div>
         </div>
 
         <div class="ui list">
           <div class="item">
             <div class="left floated content">
-              <button class="ui red button"><i class="icon remove"/>&nbsp;&nbsp;Delete All</button>
+              <LinkTo @route="my-order.order.cancel" {{action 'cancel' order}} @model={{@model.order.id}} class="ui red button"><i class="icon remove"/>&nbsp;&nbsp;Delete All</LinkTo>
             </div>
             <div class="right floated content">
-              <button class="ui green button"><i class="icon check"/>&nbsp;&nbsp;Command Completed</button>
+              <LinkTo @route="my-order.order.prepared" {{action 'prepared' order}} @model={{@model.order.id}} class="ui green button"><i class="icon check"/>&nbsp;&nbsp;Command Completed</LinkTo>
             </div>
           </div>
         </div>

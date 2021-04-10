@@ -32,7 +32,7 @@
               </div>
 
               <div class="right floated content">
-                Quantity : {{@model.products.length}}
+                Quantity : {{@model.quantity}}
                 <br>
                 Amount : {{@model.order.amount}} €
                 <br>
@@ -53,20 +53,31 @@
 
         <div class="ui items">
           <hr>
-          {{#each @model.products as |productList|}}
+          {{#each @model.product as |productList|}}
             <div class="item">
               <div class="content">
                 <br>
-                {{productList.name}}
-                <br><br>
-                <div class="meta">
-                  <span>Quantity : {{productList.quantity}}</span>
+                <div style="text-align: left">
+                  {{productList.name}}
+                  &nbsp;&nbsp;&nbsp;
+                  {{#if @model.prepared }}
+                    <i class="icon close red">&nbsp;PREPARED</i>
+                  {{else}}
+                    <i class="icon check green">&nbsp;PREPARED</i>
+                  {{/if}}
                 </div>
-                <div class="extra">
-                  Price : {{productList.price}} €
-                  <br>
-                  {{productList.promotion}} €
+                <div style="text-align: right">
+                  <div class="header">
+                    Quantity : {{@model.quantity}}
+                  </div>
+
+                  <div class="extra">
+                    Price : {{productList.price}} €
+                    <br>
+                    {{productList.promotion}} €
+                  </div>
                 </div>
+
                 <br>
               </div>
             </div>
@@ -82,7 +93,9 @@
     <div class="column twelve wide">
       <fieldset>
         <legend>&nbsp;Advancement&nbsp;</legend>
-        <div class="ui indicating progress" data-value="{{@model.order.missingNumber}}" id="progress" data-total="{{@model.order.itemsNumber}}" data-percent="100*{{@model.order.missingNumber}}/{{@model.order.itemsNumber}}">
+        <div class="ui indicating progress" data-value="{{@model.order.missingNumber}}"
+             id="progress" data-total="{{@model.order.itemsNumber}}"
+             data-percent="100*{{@model.order.missingNumber}}/{{@model.order.itemsNumber}}">
           <div class="bar">
             <div class="progress"></div>
           </div>

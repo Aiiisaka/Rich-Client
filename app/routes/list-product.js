@@ -3,12 +3,9 @@ import { action } from '@ember/object';
 
 export default class ListeProduitRoute extends Abstractroute {
   model(params) {
-    var model = {};
-
-    model.section = this.store.findRecord('section', params.section_id);
-    model.products = this.store.findRecord('product', params.section_id);
-
-    return model;
+    return this.store.findRecord('section', params.section_id, {
+      include: 'products',
+    });
   }
 
   @action section() {

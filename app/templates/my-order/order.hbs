@@ -53,19 +53,19 @@
 
         <div class="ui items">
           <hr>
-          {{#each @model.products as |product|}}
+          {{#each @model.products as |productList|}}
             <div class="item">
               <div class="content">
                 <br>
-                {{product.name}}
+                {{productList.name}}
                 <br><br>
                 <div class="meta">
-                  <span>Quantity : {{product.quantity}}</span>
+                  <span>Quantity : {{productList.quantity}}</span>
                 </div>
                 <div class="extra">
-                  Price : {{product.price}} €
+                  Price : {{productList.price}} €
                   <br>
-                  {{product.promotion}} €
+                  {{productList.promotion}} €
                 </div>
                 <br>
               </div>
@@ -82,18 +82,13 @@
     <div class="column twelve wide">
       <fieldset>
         <legend>&nbsp;Advancement&nbsp;</legend>
-        <div class="ui progress orange">
+        <div class="ui indicating progress" data-value="{{@model.order.missingNumber}}" id="progress" data-total="{{@model.order.itemsNumber}}" data-percent="100*{{@model.order.missingNumber}}/{{@model.order.itemsNumber}}">
           <div class="bar">
             <div class="progress"></div>
           </div>
-        </div>
-
-        <div style="text-align: center">
-          <b>
-            <h4>
-              {{@model.order.itemsNumber}}/{{@model.order.missingNumber}} prepared products
-            </h4>
-          </b>
+          <div class="label">
+            {{@model.order.missingNumber}}/{{@model.order.itemsNumber}} prepared products
+          </div>
         </div>
 
         <div class="ui list">

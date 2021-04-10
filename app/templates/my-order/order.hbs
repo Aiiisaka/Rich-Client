@@ -63,7 +63,7 @@
                   {{#if @model.prepared }}
                     <i class="icon check green">&nbsp;PREPARED</i>
                   {{else}}
-                    <LinkTo class="ui red button" @route="my-order.order.product-prepared" {{action 'productPrepared' }} @model={{@model.order.id}}>&nbsp;&nbsp;&nbsp;<i class="icon close"/>&nbsp;PREPARED</LinkTo>
+                    <LinkTo class="ui red mini button" @route="my-order.order.product-prepared" {{action 'productPrepared' }} @model={{@model.order.id}}><i class="icon close"/>&nbsp;PREPARED</LinkTo>
                   {{/if}}
                 </div>
                 <div style="text-align: right">

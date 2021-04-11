@@ -1,7 +1,22 @@
-# projet-6
+# Project Ember
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+## Goal
+
+The purpose of this application is to manage the sales of a car shop through a website.
+
+An employee can add products according to sections. Add a section or modify a section or delete it.
+He can also edit a product or delete a product.
+
+A user can create a order with products.
+Therefore, an employee must be able to validate the order by preparing the products and once finished, the order will be validated. However, this functionality has not been fully implemented. The employee can validate an order but not the products one by one.
+
+## Ember
+
+Ember.js is an open-source JavaScript framework for web applications.
+
+This framework uses the Model-View-Controller architecture.
+
+It allows developers to create single-page web applications.
 
 ## Prerequisites
 
